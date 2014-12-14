@@ -1,0 +1,43 @@
+{
+	"frames": {
+
+		"player_elizabeth.png":
+		{
+			"frame": {"x":2,"y":2,"w":150,"h":150},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":150,"h":150},
+			"sourceSize": {"w":150,"h":150}
+		},
+		"player_juancarlos.png":
+		{
+			"frame": {"x":154,"y":2,"w":150,"h":150},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":150,"h":150},
+			"sourceSize": {"w":150,"h":150}
+		},
+		"player_juanmanuel.png":
+		{
+			"frame": {"x":306,"y":2,"w":150,"h":150},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":150,"h":150},
+			"sourceSize": {"w":150,"h":150}
+		}
+	},
+	"animations":[
+			{"name":"saurio","asset_indx":2},
+			{"name":"eli","asset_indx":0},
+			{"name":"bananero","asset_indx":1}
+		],
+	"meta": {
+		"app": "http://www.codeandweb.com/texturepacker ",
+		"version": "1.0",
+		"image": "atlas_players.png",
+		"format": "RGBA8888",
+		"size": {"w":458,"h":157},
+		"scale": "1",
+		"smartupdate": "$TexturePacker:SmartUpdate:59598fa69753449ee7a64094069b7c70:b1ce2fc82ce2c8d323b5b7c698087465:56723594505b49a3b2cb4dc67c51bf8f$"
+	}
+}

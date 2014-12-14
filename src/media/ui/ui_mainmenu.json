@@ -1,0 +1,46 @@
+{"frames": { 
+
+"btnPlay.png":
+{
+	"frame": {"x":2,"y":2,"w":318,"h":106},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":318,"h":106},
+	"sourceSize": {"w":318,"h":106}
+},
+"panel.png":
+{
+	"frame": {"x":2,"y":110,"w":338,"h":330},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":338,"h":330},
+	"sourceSize": {"w":338,"h":330}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "ui_mainmenu.png",
+	"format": "RGBA8888",
+	"size": {"w":342,"h":443},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:86f0280fe21a98307b8619a0c3cbd137:c9f177918660b261ea62602f2d6b3c39:7cbf519872563dd44018225a8c4c5474$"
+},
+	"animations": [
+				{
+					"name": "mcBtnMainMenuPlay",
+					"fps": 30,
+					"numFrames": 1,
+					"frames": [2]
+				},
+				{
+					"name": "mcClipMainMenuLogo",
+					"fps": 30,
+					"numFrames": 1,
+					"frames": [1]
+				}
+			],
+	"textureMapping": {
+		"1" : "panel.png",
+		"2" : "btnPlay.png"
+		}
+}

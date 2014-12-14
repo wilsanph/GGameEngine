@@ -1,0 +1,58 @@
+{
+
+	"ui" :[
+				{
+
+					"name" : "mainmenu",
+
+					"elements" : [
+
+									{
+										"id" 	: "btnMainMenuPlay",
+										"type"	: "button",
+										"x"		: 512,
+										"y"		: 400,
+										"clip"	: "mcBtnMainMenuPlay",
+										"data"	: {}
+									},
+									{
+										"id"	: "clipMainMenuLogo",
+										"type"	: "clip",
+										"x"		: 512,
+										"y"		: 150,
+										"clip"	: "mcClipMainMenuLogo",
+										"data"	: {}									
+									}
+								],
+
+					"movements" : [
+								]		
+				},
+				{
+					"name" : "hud",
+
+					"elements" : [
+
+									{
+										"id" 	: "btnHudPause",
+										"type"	: "button",
+										"x"		: 512,
+										"y"		: 500,
+										"clip"	: "mcBtnHudPause",
+										"data"	: {}
+									},
+									{
+										"id"	: "clipHudCharacter",
+										"type"	: "clip",
+										"x"		: 512,
+										"y"		: 300,
+										"clip"	: "mcClipHudCharacter",
+										"data"	: {}									
+									}
+								],
+
+					"movements" : [
+								]							
+				}
+			]
+}

@@ -1,0 +1,179 @@
+{
+	"frames": {
+
+		"player_red_walk_down_1.png":
+		{
+			"frame": {"x":2,"y":2,"w":22,"h":28},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":22,"h":28},
+			"sourceSize": {"w":22,"h":28}
+		},
+		"player_red_walk_down_2.png":
+		{
+			"frame": {"x":26,"y":2,"w":22,"h":28},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":22,"h":28},
+			"sourceSize": {"w":22,"h":28}
+		},
+		"player_red_walk_down_3.png":
+		{
+			"frame": {"x":50,"y":2,"w":22,"h":28},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":22,"h":28},
+			"sourceSize": {"w":22,"h":28}
+		},
+		"player_red_walk_left_1.png":
+		{
+			"frame": {"x":74,"y":2,"w":22,"h":28},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":22,"h":28},
+			"sourceSize": {"w":22,"h":28}
+		},
+		"player_red_walk_left_2.png":
+		{
+			"frame": {"x":98,"y":2,"w":22,"h":28},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":22,"h":28},
+			"sourceSize": {"w":22,"h":28}
+		},
+		"player_red_walk_left_3.png":
+		{
+			"frame": {"x":122,"y":2,"w":22,"h":28},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":22,"h":28},
+			"sourceSize": {"w":22,"h":28}
+		},
+		"player_red_walk_right_1.png":
+		{
+			"frame": {"x":146,"y":2,"w":22,"h":28},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":22,"h":28},
+			"sourceSize": {"w":22,"h":28}
+		},
+		"player_red_walk_right_2.png":
+		{
+			"frame": {"x":170,"y":2,"w":22,"h":28},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":22,"h":28},
+			"sourceSize": {"w":22,"h":28}
+		},
+		"player_red_walk_right_3.png":
+		{
+			"frame": {"x":194,"y":2,"w":22,"h":28},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":22,"h":28},
+			"sourceSize": {"w":22,"h":28}
+		},
+		"player_red_walk_up_1.png":
+		{
+			"frame": {"x":218,"y":2,"w":24,"h":28},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":24,"h":28},
+			"sourceSize": {"w":24,"h":28}
+		},
+		"player_red_walk_up_2.png":
+		{
+			"frame": {"x":244,"y":2,"w":22,"h":28},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":22,"h":28},
+			"sourceSize": {"w":22,"h":28}
+		},
+		"player_red_walk_up_3.png":
+		{
+			"frame": {"x":268,"y":2,"w":22,"h":28},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":22,"h":28},
+			"sourceSize": {"w":22,"h":28}
+		}
+	},
+	
+	"meta": {
+		"app": "http://www.codeandweb.com/texturepacker ",
+		"version": "1.0",
+		"image": "player_red_walk.png",
+		"format": "RGBA8888",
+		"size": {"w":356,"h":32},
+		"scale": "1",
+		"smartupdate": "$TexturePacker:SmartUpdate:0b15cc8553c077ed349576f87ab3509d:58df5d7a81b8d1fcc57b21357e7ec112:6cb805203e5973fcb8f02a42c4a5d417$"
+	},
+
+"animations": [
+
+		{
+			"name": "red_walk_left",
+			"fps": 30,
+			"numFrames": 6,
+			"frames": [4,4,5,5,6,6]
+		},
+		{
+			"name": "red_walk_right",
+			"fps": 30,
+			"numFrames": 6,
+			"frames": [7,7,8,8,9,9]	
+		},
+		{
+			"name": "red_walk_up",
+			"fps": 30,
+			"numFrames": 6,
+			"frames": [10,10,11,11,12,12]	
+		},
+		{
+			"name": "red_walk_down",
+			"fps": 30,
+			"numFrames": 6,
+			"frames": [1,1,2,2,3,3]	
+		},		
+		{
+			"name": "red_stand_left",
+			"fps": 30,
+			"numFrames": 1,
+			"frames": [5]	
+		},
+		{
+			"name": "red_stand_right",
+			"fps": 30,
+			"numFrames": 1,
+			"frames": [8]	
+		},
+		{
+			"name": "red_stand_up",
+			"fps": 30,
+			"numFrames": 1,
+			"frames": [11]	
+		},
+		{
+			"name": "red_stand_down",
+			"fps": 30,
+			"numFrames": 1,
+			"frames": [2]	
+		}				
+
+	],
+"textureMapping": {
+	"1" : "player_red_walk_down_1.png",
+	"2" : "player_red_walk_down_2.png",
+	"3" : "player_red_walk_down_3.png",
+	"4" : "player_red_walk_left_1.png",
+	"5" : "player_red_walk_left_2.png",
+	"6" : "player_red_walk_left_3.png",
+	"7" : "player_red_walk_right_1.png",
+	"8" : "player_red_walk_right_2.png",
+	"9" : "player_red_walk_right_3.png",
+	"10" : "player_red_walk_up_1.png",
+	"11" : "player_red_walk_up_2.png",
+	"12" : "player_red_walk_up_3.png"	
+	}
+
+}

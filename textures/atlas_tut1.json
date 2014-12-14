@@ -1,0 +1,51 @@
+{
+
+"frames": {
+
+		"bunny.png":
+		{
+			"frame": {"x":2,"y":2,"w":26,"h":37},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":26,"h":37},
+			"sourceSize": {"w":26,"h":37}
+		},
+		"particle1.png":
+		{
+			"frame": {"x":2,"y":41,"w":15,"h":15},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":15,"h":15},
+			"sourceSize": {"w":15,"h":15}
+		}
+	},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "atlas_tut1.png",
+	"format": "RGBA8888",
+	"size": {"w":30,"h":64},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:d4a90058562c97091f5d8f1fec4f397c:be6a6fb329912e26fa3a8ccae782e891:37d5a68f74c3d490cf16bbf6568f56e9$"
+	},
+"animations": [
+
+		{
+			"name": "player_stand",
+			"fps": 30,
+			"numFrames": 10,
+			"frames": [1,1,1,1,1,2,2,2,2,2]
+		},
+		{
+			"name": "player_jump",
+			"fps": 30,
+			"numFrames": 10,
+			"frames": [2,2,2,2,2,2,2,2,2,2]	
+		}
+
+	],
+"textureMapping": {
+	"1" : "bunny.png",
+	"2" : "particle1.png"
+	}
+}
