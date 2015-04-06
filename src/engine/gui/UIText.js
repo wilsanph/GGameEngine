@@ -15,7 +15,7 @@ UIText.prototype.constructor = UIElement;
 UIText.DEFAULT_TEXT = "FooBar";
 
 UIText.prototype.init = function init() {
-	this.m_pixiText = new PÍXI.Text( this.str );
+	this.m_pixiText = new PIXI.Text( this.str );
 	this.m_container.addChild( this.m_pixiText );
 	this.m_pixiText.position.x = this.m_x;
 	this.m_pixiText.position.y = this.m_y;

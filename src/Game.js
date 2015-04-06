@@ -1,39 +1,30 @@
 
-
-
+/**
+* @constructor
+* @param {PIXI.DisplayObjectContainer} canvas
+*/
 function Game( canvas ){
-
+	/** @type {Object|?} */
 	this.socket = null;
-
-	//this.texture = PIXI.Texture.fromImage( "bunny.png" );
-	this.texture = PIXI.Texture.fromFrame( Game.ASSETS_NAMES["bunny"] );
-	this.bunny = new PIXI.Sprite( this.texture );
+	/** @type {PIXI.DisplayObjectContainer} */
 	this.canvas = canvas;
-
-	this.gameBounds = new Rectangle( Game.GAME_AREA_LEFT,
-									 Game.GAME_AREA_TOP,
-									 Game.GAME_AREA_RIGHT - 40,
-									 Game.GAME_AREA_BOTTOM - 40 );
-
+	/** @type {PIXI.DisplayObjectContainer} */
 	this.debugContainer = null;
 
 	if ( Game.DEBUG_DRAW ) {
 		this.debugGraphics = new PIXI.Graphics();
 		this.debugContainer = new PIXI.DisplayObjectContainer();
-		this.canvas.addChild( this.debugContainer );
+		Application.instance.canvas.addChild( this.debugContainer );
 		this.debugContainer.addChild( this.debugGraphics );
 	}
 
 	/** @type {World} */
 	this.world = null;
 
+	new GSandbox( this );
+
 	this.init();
 }
-Game.ASSETS_NAMES = { bunny: "bunny.png", 
-					  particle: "particle1.png",
-					  eli : "player_elizabeth.png",
-					  juanca : "player_juancarlos.png",
-					  saurio : "player_juanmanuel.png" };
 
 Game.MAX_DELTA = 50;
 
@@ -88,34 +79,40 @@ Game.prototype.onSocketRemovePlayer = function onSocketRemovePlayer( data ) {
 };
 
 
-Game.prototype.update = function update( dt ) {
-	this.debugDraw();		
+Game.prototype.update = function update( dt ) {		
 	
 	dt = ( dt > Game.MAX_DELTA ) ? Game.MAX_DELTA : dt;
-	this.world.update( dt );	
+	this.world.update( dt );
+
+	this.debugDraw();
 };
 
-Game.prototype.onMouseDown = function onMouseDown( x, y ) {	
+Game.prototype.onPointerPress = function ( eData ) {	
 	
 };
 
-Game.prototype.onKeyDown = function onKeyDown ( keycode ) {
+Game.prototype.onKeyDown = function ( keycode ) {
 	if ( this.world !== null ) {
 		this.world.onKeyDown( keycode );
 	}
 };
 
-Game.prototype.onKeyUp = function onKeyUp ( keycode ) {
+Game.prototype.onKeyUp = function ( keycode ) {
 	if ( this.world !== null ) {
 		this.world.onKeyUp( keycode );
 	}	
 };
 
-Game.prototype.debugDraw = function debugDraw() {
+Game.prototype.debugDraw = function () {
+	if ( !Game.DEBUG_DRAW ) {
+		return;
+	}
 	this.debugGraphics.clear();
-	this.debugGraphics.lineStyle( 2, 0x0000ff, 1 );
-	this.debugGraphics.drawRect( this.gameBounds.x, this.gameBounds.y,
-								 this.gameBounds.w, this.gameBounds.h );
-	
+	////this.debugGraphics.lineStyle( 2, 0x0000ff, 1 );
+	////this.debugGraphics.drawRect( x, y,
+	////							 w, h );
+	if ( this.world !== null ) {
+		this.world.debugDraw( this.debugGraphics );
+	}
 };
 

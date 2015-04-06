@@ -40,6 +40,10 @@ Scene.prototype.onKeyUp = function onKeyUp( keycode ) {
 	// override this
 };
 
+Scene.prototype.onPointerPress = function ( eData ) {
+	// override this
+};
+
 Scene.prototype.onDebugDraw = function onDebugDraw( debugGraphics ) {
 	// override this
 };

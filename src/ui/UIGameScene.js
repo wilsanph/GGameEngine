@@ -1,6 +1,8 @@
-
+/**
+* @constructor
+* @param {string} sceneName
+*/
 function UIGameScene ( sceneName ) {
-	
 	StateScene.call( this, sceneName, true );
 
 	UIGameScene.instance = this;
@@ -26,6 +28,17 @@ UIGameScene.prototype.onKeyDown = function onKeyDown( keycode ) {
 UIGameScene.prototype.onKeyUp = function onKeyUp( keycode ) {
 	if ( this.game !== null ) {
 		this.game.onKeyUp( keycode );
+	}
+};
+
+UIGameScene.prototype.onPointerPress = function ( eData ) {
+	if ( this.game !== null ) {
+		this.game.onPointerPress( eData );
+	}
+	if ( GSandbox.instance !== null ) {
+		GSandbox.instance.onPointerPress( eData.originalEvent.which,
+										  eData.global.x,
+										  eData.global.y );
 	}
 };
 

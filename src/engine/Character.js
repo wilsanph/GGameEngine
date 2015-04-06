@@ -26,6 +26,14 @@ Character.prototype.setName = function setName( name ) {
 	this.m_name = name;
 };
 
+Character.prototype.setX = function ( x ) {
+	this.m_x = x;
+};
+
+Character.prototype.setY = function ( y ) {
+	this.m_y = y;
+};
+
 Character.prototype.addState = function addState( idState, animationID ) {
 	this.m_states[idState] = animationID;
 };

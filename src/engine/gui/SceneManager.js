@@ -119,6 +119,14 @@ SceneManager.prototype.onKeyUp = function onKeyUp( keycode ) {
 	}
 };
 
+SceneManager.prototype.onPointerPress = function ( eData ) {
+	for ( var sceneID in this.m_scenes ) {
+		if ( this.m_scenes[sceneID] !== null ) {
+			this.m_scenes[sceneID].onPointerPress( eData );
+		}
+	}
+};
+
 SceneManager.prototype.debugDraw = function debugDraw() {
 	Application.instance.debugGraphics.clear();
 	for ( var sceneID in this.m_scenes ) {

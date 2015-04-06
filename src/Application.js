@@ -1,6 +1,3 @@
-
-
-
 function Application () {
 	
 	Application.instance = this;
@@ -21,32 +18,31 @@ function Application () {
 	this.debugContainer.addChild( this.debugGraphics );
 
 
-	this.stage.mousedown = function  ( eData ) {
+	this.stage.mousedown = function ( eData ) {
 		Application.instance.onMouseDown( eData );
-	};	
+	};
+
+	// Add key listeners
+	document.addEventListener( "keydown", function ( e ) {
+		e.preventDefault();
+		Application.instance.onKeyDown( e.keyCode );
+	} );
+
+	document.addEventListener( "keyup", function ( e ) {
+		e.preventDefault();
+		Application.instance.onKeyUp( e.keyCode );
+	} );
 
 	this.assetsList = ["media/textures/atlas_tut1.json",
 					   "media/textures/atlas_players.json",
 					   "media/maps/export/map1_atlas.json"];
 
-	// Add key listeners
-	document.addEventListener("keydown", function ( e ) {
-		e.preventDefault();
-		Application.instance.onKeyDown( e.keyCode );
-	});
-
-	document.addEventListener("keyup", function ( e ) {
-		e.preventDefault();
-		Application.instance.onKeyUp( e.keyCode );
-	});
-
 	this.sceneManager = null;
 	this.transitionManager = null;
-	this.game = null;//new Game( this.canvas );
 
-	this.oldTime = 0;
-	this.newTime = 0;
-	this.deltaTime = 0;
+	this.m_oldTime = 0;
+	this.m_newTime = 0;
+	this.m_deltaTime = 0;
 
 	window["animations"] = {};
 	window["ui"] = {};
@@ -75,17 +71,11 @@ function Application () {
 
 	for (var i = 0; i < this.jsonFilesToLoad.length; i++) {
 		var loader = new PIXI.JsonLoader( this.jsonFilesToLoad[i] );
-		/*
-		loader.on( 'loaded', function (e) {
-			Application.instance.jsonData.push( e.content.json );
-		} );
-		*/		
 		this.jsonLoaders.push( loader );
 	}
 	this.jsonLoaders.push( this.m_animationLoader );
 	this.jsonLoaders.push( this.m_uiAnimationLoader );
 	this.jsonLoaders.push( this.m_uiLoader );
-	//this.startToLoadJSON();	
 
 	// Load sounds	
 	Application.config = window["config"];
@@ -127,7 +117,6 @@ Application.prototype.onLoadSoundProgress = function onLoadSoundProgress ( event
 
 Application.prototype.onSoundsLoaded = function onSoundsLoaded() {
 	this.soundsLoaded = true;
-	this.playSound( "SND_GAMEPLAY_1", -1 );
 };
 
 Application.prototype.playSound = function ( id, loops ) {
@@ -168,20 +157,10 @@ Application.instance = null;
 Application.APP_WIDTH = 1024;
 Application.APP_HEIGHT = 768;
 
-Application.prototype.onMouseDown = function onMouseDown( eData ) {
-	console.log( "eventMouseDown" );
-	console.log( "x: " + eData.global.x + ", y: " + eData.global.y );
-	if ( this.game !== null ) {
-		this.game.onMouseDown( eData.global.x, eData.global.y );
-	}
-};
-
 Application.prototype.onGameReady = function onGameReady() {
-	if ( Application.instance.game !== null ) {
-		return;	
-	}
 	this.sceneManager 		= new SceneManager();
 	this.transitionManager	= new TransitionManager();
+
 	// Create the transitions and states
 	this.transitionManager.addTransition( SceneManager.UI_ROOT,
 										  SceneManager.UI_MAIN_MENU,
@@ -198,19 +177,12 @@ Application.prototype.onGameReady = function onGameReady() {
 	this.transitionManager.changeState( 'transition1',
 										SceneManager.UI_ROOT,
 		                                SceneManager.UI_MAIN_MENU );
-	/*
-	this.transitionManager.addTransition( SceneManager.UI_MAIN_MENU,
-										  SceneManager.UI_RPG_GAME,
-										   )
-	*/
-	//this.sceneManager.gotoScene( SceneManager.UI_MAIN_MENU );
-	//this.game = new Game( Application.instance.canvas );
 };
 
 Application.prototype.update = function update() {	
-	this.newTime = Date.now();
-	this.deltaTime = this.newTime - this.oldTime;
-	this.oldTime = this.newTime;
+	this.m_newTime = Date.now();
+	this.m_deltaTime = this.m_newTime - this.m_oldTime;
+	this.m_oldTime = this.m_newTime;
 
 	/**
 	if ( this.gameReady ) {
@@ -220,27 +192,42 @@ Application.prototype.update = function update() {
 	*/
 	
 	if ( this.sceneManager !== null && this.transitionManager !== null ) {
-		this.sceneManager.update( this.deltaTime );		
+		this.sceneManager.update( this.m_deltaTime );		
 	}
-	
-	/*
-	if ( this.game !== null ) {				
-		this.game.update( this.deltaTime );
-	}
-	*/
 	
 };
 
 Application.prototype.onKeyDown = function onKeyDown( keycode ) {
-	console.log( "onKeyDown" );
 	if ( this.sceneManager !== null ) {
 		this.sceneManager.onKeyDown( keycode );
 	}
 };
 
 Application.prototype.onKeyUp = function onKeyUp( keycode ) {
-	console.log( "onKeyUp" );
 	if ( this.sceneManager !== null ) {
 		this.sceneManager.onKeyUp( keycode );
 	}
+};
+
+Application.prototype.onMouseDown = function onMouseDown( eData ) {
+	console.log( "x: " + eData.global.x + ", y: " + eData.global.y );
+	if ( this.sceneManager !== null ) {
+		this.sceneManager.onPointerPress( eData );
+	}
+};
+
+
+/**
+ * Inherit the prototype methods from one constructor into another.
+ * extended classes have the property [parent] for calling parent methods.
+ * @param {Function} childConstructor Child class constructor.
+ * @param {Function} parentConstructor Parent class constructor.
+ */
+Application.subclass = function ( childConstructor, parentConstructor ) {
+    /** @constructor */
+    function temporalConstructor() { };
+    temporalConstructor.prototype = parentConstructor.prototype;
+    childConstructor.prototype = new temporalConstructor();
+    /** @override */
+    childConstructor.prototype.constructor = childConstructor;
 };

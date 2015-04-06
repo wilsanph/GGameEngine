@@ -20,18 +20,17 @@ AnimationLoader.prototype.constructor = PIXI.JsonLoader;
 
 AnimationLoader.prototype.onJSONLoaded = function () {	
 
-    if(!this.ajaxRequest.responseText )
-    {
+    if( !this.ajaxRequest.responseText ) {
         this.onError();
         return;
     }
    
-    this.json = JSON.parse(this.ajaxRequest.responseText);
+    this.json = JSON.parse( this.ajaxRequest.responseText );
 
 	// use window["animations"] to save this data
-	if ( this.json.animations && this.json.textureMapping) {
+	if ( this.json.animations && this.json.textureMapping ) {
 		// If the animation data is in this json, then parse it
-		for (var i = 0; i < this.json.animations.length; i++) {
+		for ( var i = 0; i < this.json.animations.length; i++ ) {
 			var name = this.json.animations[i]["name"];
 			var fps = this.json.animations[i]["fps"];
 			var numFrames = this.json.animations[i]["numFrames"];

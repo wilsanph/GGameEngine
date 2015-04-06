@@ -1,7 +1,5 @@
 
-function Common () {
-	
-}
+function Common () {}
 
 Common.getTileName = function getTileName( tileBaseName, num ) {
 	if ( num < 10 ) {
